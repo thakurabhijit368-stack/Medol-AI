@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MEDOL AI — DESENDER</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="logo">M</div>
+            <div>
+                <h2>MEDOL</h2>
+                <span>by DESENDER</span>
+            </div>
+        </div>
+
+        <button class="new-chat" onclick="newChat()">
+            <span>＋</span> New Chat
+        </button>
+
+        <div class="side-section">
+            <p>TOOLS</p>
+
+            <button class="side-button" onclick="setMode('chat')">
+                💬 <span>AI Chat</span>
+            </button>
+
+            <button class="side-button" onclick="setMode('code')">
+                💻 <span>Code Helper</span>
+            </button>
+
+            <button class="side-button" onclick="setMode('student')">
+                🎓 <span>Student Helper</span>
+            </button>
+
+            <button class="side-button" onclick="setMode('image')">
+                🎨 <span>Image Creator</span>
+            </button>
+        </div>
+
+        <div class="side-section">
+            <p>RECENT</p>
+
+            <div id="history">
+                <div class="history-item">
+                    Welcome to MEDOL
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <button class="side-button" onclick="openSettings()">
+                ⚙️ <span>Settings</span>
+            </button>
+
+            <div class="company">
+                <strong>DESENDER</strong>
+                <small>AI Technology</small>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- TOP BAR -->
+        <header class="topbar">
+
+            <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+            <div class="model-name">
+                <div class="status-dot"></div>
+                <strong>MEDOL</strong>
+                <span>AI</span>
+            </div>
+
+            <button class="top-button" onclick="newChat()">
+                ＋
+            </button>
+
+        </header>
+
+
+        <!-- CHAT AREA -->
+        <section class="chat-area" id="chatArea">
+
+            <div class="welcome" id="welcome">
+
+                <div class="big-logo">M</div>
+
+                <h1>What can I help you with?</h1>
+
+                <p>
+                    Ask MEDOL anything — learn, code, create,
+                    write and explore.
+                </p>
+
+                <div class="quick-actions">
+
+                    <button onclick="quickPrompt('Help me learn HTML step by step')">
+                        💻
+                        <span>
+                            <strong>Learn coding</strong>
+                            <small>HTML, CSS & JavaScript</small>
+                        </span>
+                    </button>
+
+                    <button onclick="quickPrompt('Explain this topic like a student teacher')">
+                        🎓
+                        <span>
+                            <strong>Study with MEDOL</strong>
+                            <small>Understand difficult topics</small>
+                        </span>
+                    </button>
+
+                    <button onclick="setMode('image')">
+                        🎨
+                        <span>
+                            <strong>Create an image</strong>
+                            <small>Turn ideas into prompts</small>
+                        </span>
+                    </button>
+
+                    <button onclick="setMode('code')">
+                        🧑‍💻
+                        <span>
+                            <strong>Build something</strong>
+                            <small>Get coding help</small>
+                        </span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- INPUT -->
+        <div class="input-container">
+
+            <div class="mode-label" id="modeLabel">
+                MEDOL AI
+            </div>
+
+            <div class="input-box">
+
+                <button class="attach-btn" onclick="showAttachMessage()">
+                    ＋
+                </button>
+
+                <textarea
+                    id="userInput"
+                    placeholder="Message MEDOL..."
+                    rows="1"
+                    onkeydown="handleEnter(event)"
+                ></textarea>
+
+                <button
+                    class="mic-btn"
+                    onclick="startVoice()"
+                    title="Voice input">
+                    🎤
+                </button>
+
+                <button
+                    class="send-btn"
+                    onclick="sendMessage()"
+                    id="sendButton">
+                    ➤
+                </button>
+
+            </div>
+
+            <div class="disclaimer">
+                MEDOL can make mistakes. Check important information.
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- SETTINGS MODAL -->
+
+<div class="modal" id="settingsModal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeSettings()">×</button>
+
+        <h2>MEDOL Settings</h2>
+
+        <label>
+            Appearance
+        </label>
+
+        <select onchange="changeTheme(this.value)">
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+        </select>
+
+        <label>
+            AI Name
+        </label>
+
+        <input value="MEDOL" readonly>
+
+        <label>
+            Company
+        </label>
+
+        <input value="DESENDER" readonly>
+
+        <button class="save-button" onclick="closeSettings()">
+            Done
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
